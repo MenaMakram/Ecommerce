@@ -1,0 +1,43 @@
+<nav style="background-color: thistle">
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">Shopping</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="cart">Cart <span class="new badge">{{cart?.length || '0' }}</span></a></li>
+    </ul>
+  </div>
+</nav>
+<div class="row">
+    <div class="col s2"></div>
+<div class="col s8 card">
+<table class="highlight">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+        <th>Remove</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let item of prodList" >
+      <td>{{item.product.Name}}</td>
+      <td>
+      <a (click)="addcartQ(item.product.ID,item.product.Quantity)" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">add</i></a>
+      {{item.Quantity}}
+      <a (click)="removecartQ(item.product.ID)" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">remove</i></a></td>
+      <td>${{item.product.Price}}</td>
+      <td>${{item.product.Price*item.Quantity}}</td>
+      <td><a (click)="removecart(item.product.ID)" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">remove</i></a></td>
+    </tr>
+
+  </tbody>
+</table>
+Total = ${{billtotal}}
+
+<button (click)="onOrder()" class="waves-effect waves-light btn">Place Order</button>
+</div>
+<div class="col s2"></div>
+
+</div>

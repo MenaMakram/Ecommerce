@@ -1,0 +1,21 @@
+<form class="col s12 white" #SubCategoryForm="ngForm" (ngSubmit)="OnSubmit(SubCategoryForm)">
+  <div class="row">
+    <div class="input-field col s6">
+      <input class="validate" type="text" name="Name" #Name="ngModel" [(ngModel)]="subcat.Name" required>
+      <label data-error="Required field!">Sub Category Name</label>
+    <input class="validate" type="text" name="ID" #Name="ngModel" [(ngModel)]="subcat.ID" hidden>
+
+    </div>
+    <label>Category Select</label>
+    <select class="browser-default col s6" name="CategoryID" #CategoryID="ngModel" [(ngModel)]="subcat.CategoryID">
+
+      <option *ngFor="let item of cat" value="{{item.ID}}">{{item.Name}}</option>
+    </select>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <button [disabled]="!SubCategoryForm.valid" class="btn-large btn-submit" type="submit">Submit</button>
+    </div>
+  </div>
+</form>

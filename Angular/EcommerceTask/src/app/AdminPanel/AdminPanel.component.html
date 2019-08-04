@@ -1,0 +1,75 @@
+
+<nav style="background-color: blue;">
+  <div class="nav-wrapper" >
+    <a href="#" class="brand-logo center">
+      <i class="material-icons">cloud</i>Admin Panel</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down" >
+      <li>
+        <a (click)="Logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+<div class="row" *ngIf="userClaims">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content">
+        <span>Username :{{userClaims.UserName}}</span>
+        <br>
+        <span>Email : {{userClaims.Email}}</span>
+        <br>
+        <span>Full Name : {{userClaims.FirstName}} {{userClaims.LastName}}</span>
+        <br>
+        <span>Logged On : {{userClaims.LoggedOn}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="container">
+  <div class="row card">
+    <div class="col s3">
+        <div class="card ">
+          <ul class="collection with-header">
+
+
+                    <li class="collection-item" *ngIf="userService.roleMatch(['Admin'])">
+                        <a routerLink='/Category' routerLinkActive='active'>Category</a>
+                      </li>
+                      <li class="collection-item" *ngIf="userService.roleMatch(['Admin'])">
+                          <a  routerLink='/showCategory' routerLinkActive='active'>Show Categories</a>
+                        </li>
+                        <li class="collection-item" *ngIf="userService.roleMatch(['Admin'])">
+                          <a routerLink='/SubCategory' routerLinkActive='active'>Sub Category</a>
+                        </li>
+                        <li class="collection-item" *ngIf="userService.roleMatch(['Admin'])">
+                            <a  routerLink='/ShowSubCategory' routerLinkActive='active'>Sub Show Categories</a>
+                          </li>
+
+
+                    <li class="collection-item" *ngIf="userService.roleMatch(['Admin'])">
+                        <a routerLink='/Product' routerLinkActive='active'>Product</a>
+                      </li>
+                      <li class="collection-item" *ngIf="userService.roleMatch(['Admin'])">
+                          <a  routerLink='/showProduct' routerLinkActive='active'>Show Products</a>
+                        </li>
+                        <li class="collection-item" *ngIf="userService.roleMatch(['Admin'])">
+                          <a  routerLink='/showUsers' routerLinkActive='active'>Show Customers</a>
+                        </li>
+                        <li class="collection-item" *ngIf="userService.roleMatch(['Admin'])">
+                            <a  routerLink='/showOrders' routerLinkActive='active'>Show Orders</a>
+                          </li>
+
+          </ul>
+        </div>
+
+    </div>
+    <div class="card-content white col s9">
+      <div class="row">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Product ID</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Quantity</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of orderUserProduct">
+            <th scope="row" >{{item.Product_ID}}</th>
+            <th >{{item.prodname}}</th>
+            <th >{{item.Quantity}}</th>
+          </tr>
+    </tbody>
+</table>

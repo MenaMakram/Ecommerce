@@ -1,0 +1,23 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Order Date</th>
+        <th scope="col">Deliver Date</th>
+        <th scope="col">Total Order Cash</th>
+        <th scope="col">Customer Id</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of orderList" >
+      <tr>
+        <td scope="row">{{item.ID}}</td>
+        <td>{{item.OrderDate}}</td>
+        <td>{{item.DeliverDate}}</td>
+        <td>{{item.TotalOrderCash}}</td>
+        <td>{{item.CustomerId}}</td>
+        <td scope="col"><button type="button" class="btn btn-primary" (click)="Details(item.orderUserProduct)">Details</button></td>
+      </tr>
+    </tbody>
+    </table>
+

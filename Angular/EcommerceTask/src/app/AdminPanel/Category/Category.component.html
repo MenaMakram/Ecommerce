@@ -1,0 +1,17 @@
+<form class="col s12 white" #CategoryForm="ngForm" (ngSubmit)="OnSubmit(CategoryForm)">
+  <div class="row">
+    <div class="input-field col s6">
+      <input class="validate" type="text" name="Name" #Name="ngModel" [(ngModel)]="cat.Name" required>
+      <label data-error="Required field!">Category Name</label>
+    <input class="validate" type="text" name="ID" #Name="ngModel" [(ngModel)]="cat.ID" hidden>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <button [disabled]="!CategoryForm.valid" class="btn-large btn-submit" type="submit">Submit</button>
+    </div>
+  </div>
+</form>

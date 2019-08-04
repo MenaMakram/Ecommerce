@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let item of usrList" >
+    <tr>
+      <td scope="row">{{item.ID}}</td>
+      <td>{{item.UserName}}</td>
+      <td scope="col"><button type="button" class="btn btn-primary" (click)="Delete(item.ID)">Delete</button></td>
+    </tr>
+  </tbody>
+  </table>

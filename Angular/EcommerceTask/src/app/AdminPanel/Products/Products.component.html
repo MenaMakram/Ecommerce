@@ -1,0 +1,57 @@
+<form class="col s12 white" #ProductForm="ngForm" (ngSubmit)="OnSubmit(ProductForm,Image)">
+  <div class="row">
+    <div class="input-field col s6">
+      <input class="validate" type="text" name="Name" #Name="ngModel" [(ngModel)]="prod.Name" required>
+      <label data-error="Required field!">Product Name</label>
+      <input class="validate" type="number" name="ID" #ID="ngModel" [(ngModel)]="prod.ID" hidden>
+    </div>
+
+    <div class="input-field col s6">
+      <input class="validate" type="number" name="Price" #Price="ngModel" [(ngModel)]="prod.Price" required>
+      <label data-error="Required field!">Product Price</label>
+
+    </div>
+    <!-- <button type="submit" class="btn-large btn-submit" [disabled]="Image.value=='' || !imageForm.valid">Submit</button> -->
+    <div class="row">
+      <div class="input-field col s6">
+        <input class="validate" type="number" name="Quantity" #Quantity="ngModel" [(ngModel)]="prod.Quantity" required>
+        <label data-error="Required field!">Product Quantity</label>
+        <input class="validate" type="text" name="SupplierID" #SupplierID="ngModel" [(ngModel)]="prod.SupplierID"
+          hidden>
+
+      </div>
+      <label>Category Select</label>
+      <select class="browser-default col s6" name="CategoryID" #CategoryID="ngModel" [(ngModel)]="categoeryID" (change)="onchange(categoeryID)">
+
+        <option *ngFor="let item of catList" value="{{item.ID}}">{{item.Name}}</option>
+      </select>
+      <label>Category Select</label>
+      <select class="browser-default col s6" name="SubCategoryID" #SubCategoryID="ngModel" [(ngModel)]="prod.SubCategoryID">
+
+        <option *ngFor="let item of subcatList" value="{{item.ID}}">{{item.Name}}</option>
+      </select>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <input class="validate" type="text" name="Image" #Image="ngModel" [(ngModel)]="prod.Image" required
+          >
+        <label data-error="Required field!">Product Image</label>
+
+      </div>
+      <div class="col s6">
+        <img [src]="imageUrl" style="width:125px;height:100px">
+        <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
+      </div>
+      <br>
+
+
+    </div>
+    <br>
+    <br>
+    <div class="row">
+      <div class="input-field col s12">
+        <button [disabled]="!ProductForm.valid" class="btn-large btn-submit" type="submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</form>
